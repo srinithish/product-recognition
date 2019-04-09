@@ -30,7 +30,7 @@ def parseXMLtoDict(fileName):
     
     objectList = []
     ###object dict
-    for eachObj in dictTemp['annotation']['object']:
+    for eachObj in dictOfAnotations['annotation']['object']:
         objectDict = {}
         objectDict['name'] = eachObj['name']
         
