@@ -15,7 +15,11 @@ def parseXMLtoDict(fileName):
     
     returns:
         imageDict : keys: width,height,depth,path,filename
-        objectList :  list of object dicts {'name': 'lion', 'xmin': '220', 'ymin': '181', 'xmax': '853', 'ymax': '785'}
+        objectList :  list of object dicts [{'name': 'lion', 
+                                            'xmin': '220', 
+                                            'ymin': '181', 
+                                            'xmax': '853',
+                                            'ymax': '785'}]
             
     """
     
@@ -24,7 +28,10 @@ def parseXMLtoDict(fileName):
         f.close()
         
     ##image dict generation
-    imageDict = dictOfAnotations['annotation']['size']
+    ## converting to int
+    imageDict = {key:int(value) for key,value in dictOfAnotations['annotation']['size'].items()}
+    
+    
     imageDict['path'] = dictOfAnotations['annotation']['path']
     imageDict['filename'] = dictOfAnotations['annotation']['filename']
     
@@ -32,7 +39,12 @@ def parseXMLtoDict(fileName):
     ###object dict
     for eachObj in dictOfAnotations['annotation']['object']:
         objectDict = {}
+        
         objectDict['name'] = eachObj['name']
+        eachObj['bndbox']['xmin'] = int(eachObj['bndbox']['xmin'])
+        eachObj['bndbox']['ymin'] = int(eachObj['bndbox']['ymin'])
+        eachObj['bndbox']['xmax'] = int(eachObj['bndbox']['xmax'])
+        eachObj['bndbox']['ymax'] = int(eachObj['bndbox']['ymax'])
         
         objectDict.update(eachObj['bndbox']) 
         
@@ -44,4 +56,4 @@ def parseXMLtoDict(fileName):
 
 if __name__ == '__main__':
     
-    imageDict, objectList = parseXMLtoDict("C:/Users/ntihish/Documents/IUB/Deep Learning/Project/Git Repo/product-recognition/twoObjects.xml")
+    imageDict, objectList = parseXMLtoDict("C:/Users/ntihish/Documents/IUB/Deep Learning/Project/Git Repo/product-recognition/twoObjectsCorrect.xml")
