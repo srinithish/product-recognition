@@ -31,6 +31,7 @@ def addBoundingBox(plt,objectList):
                                  linewidth=5,edgecolor='r',facecolor='none')
         
         plt.scatter(x=[centerX], y=[centerY], c='r', s=40)
+        plt.text(centerX, centerY, eachObj['name'], fontsize = 30 ,color = 'red')
         ax.add_patch(rect)
         
     
