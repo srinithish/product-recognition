@@ -31,7 +31,7 @@ def parseXMLtoDict(fileName):
     ## converting to int
     imageDict = {key:int(value) for key,value in dictOfAnotations['annotation']['size'].items()}
     
-    
+    imageDict['isOriginal'] = True
     imageDict['path'] = dictOfAnotations['annotation']['path']
     imageDict['filename'] = dictOfAnotations['annotation']['filename']
     
