@@ -33,7 +33,8 @@ def addBoundingBox(plt,objectList):
         plt.scatter(x=[centerX], y=[centerY], c='r', s=40)
         plt.text(centerX, centerY, eachObj['name'], fontsize = 30 ,color = 'red')
         ax.add_patch(rect)
-        
+    
+    return plt
     
     
     
@@ -46,7 +47,7 @@ def plotGridOnImg(filepath,numXGrids,numYGrids,objectList):
     
     plt.clf()
     img = plt.imread(filepath)
-    img  = np.array(img)
+#    img  = np.array(img)
     yPixels,xPixels,channels = img.shape
     
     xSteps,ySteps = xPixels//numXGrids , yPixels//numYGrids
@@ -64,14 +65,17 @@ def plotGridOnImg(filepath,numXGrids,numYGrids,objectList):
     
     addBoundingBox(plt,objectList)
 #    
-#    rect = patches.Rectangle((0,0),400,300,linewidth=1,edgecolor='r',facecolor='none')
-#    ax = plt.gca()
-#    ax.add_patch(rect)
+
+    ax = plt.gca()
+#    ax.figure.figimage(img,0,0)
+#    ax.add_image(img)
     plt.imshow(img)
-    plt.show()
+
+    
     return plt
 
 if __name__ == '__main__':
     filepath = "C:/Users/ntihish/Pictures/lions-cubs-kenya_53922_990x742.jpg"
+    imageDict, objectList = parseXMLtoDict("C:/Users/ntihish/Documents/IUB/Deep Learning/Project/Train images/annotations/xmls/Arla-Ecological-Medium-Fat-Milk_001.xml")
     gridImg = plotGridOnImg(filepath,6,6,objectList)
     gridImg.savefig("griddedImage")

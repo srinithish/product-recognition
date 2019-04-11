@@ -8,7 +8,8 @@ Created on Thu Apr 11 01:16:35 2019
  
 from PIL import Image
 import copy
-
+import numpy as np
+import math
 
 
 
@@ -33,7 +34,7 @@ def rotateImage(readFilePath, writeFilePath,rotation = 0):
     return True
 
 
-def rescaleObjDict(OrigImageDict,OrijObjectList,resizeWidth,resizeHeight):
+def _rescaleObjDict(OrigImageDict,OrijObjectList,resizeWidth,resizeHeight):
     
     """
     rescales objDict with resize width and height
@@ -47,21 +48,23 @@ def rescaleObjDict(OrigImageDict,OrijObjectList,resizeWidth,resizeHeight):
     ratioY =  resizeHeight/OrigImageDict['height']
     
     for eachObj in alteredObjectList:
-        
+
        eachObj['xmin'] = int(eachObj['xmin'] * ratioX)
        eachObj['ymin'] = int(eachObj['ymin'] * ratioY)
        eachObj['xmax'] = int(eachObj['xmax'] * ratioX)
        eachObj['ymax'] = int(eachObj['ymax'] * ratioY)
-        
+       
     
     return alteredObjectList
 
 
-def rotateObjDict():
+def rotateObjDict(OrigImageDict,OrijObjectList,rotate = 0):
+    
+    
     
     pass
 
-def generateAlteredDict(OrigImageDict,OrijObjectList,dictOfTranslations):
+def ResizeDict(OrigImageDict,OrijObjectList,dictOfTranslations):
     
     
     """
@@ -76,16 +79,23 @@ def generateAlteredDict(OrigImageDict,OrijObjectList,dictOfTranslations):
     ###prepare image dict
     ## change filename if required
     
-    AlteredImageDict = OrigImageDict.copy()
+    AlteredImageDict = copy.deepcopy(OrigImageDict)
     AlteredImageDict['isOriginal'] = False
     
     ### object list
     
-    alteredObjectList = rescaleObjDict(OrigImageDict,OrijObjectList,resizeHeight,resizeHeight)
+    alteredObjectList = _rescaleObjDict(OrigImageDict,OrijObjectList,resizeWidth,resizeHeight)
     AlteredImageDict['width']= resizeWidth
     AlteredImageDict['height'] = resizeHeight
     
     return AlteredImageDict,alteredObjectList 
+
+
+
+
+
+
+
     
 if __name__ == "__main__":
     
@@ -98,14 +108,14 @@ if __name__ == "__main__":
     origImgDict, origObjList = parseXMLtoDict(inpFileXML)
     
     ##generate new image
-    imageResize(inpFilePic,outputImg,800,800)
+    imageResize(inpFilePic,outputImg,200,200)
     
-    dictOfTranslations = {'resizeWidth' : 800, 'resizeHeight' : 800}
-    newImageDict,newObjectList  = generateAlteredDict(origImgDict,origObjList,dictOfTranslations)
+    dictOfTranslations = {'resizeWidth' : 200, 'resizeHeight' : 200}
+    newImageDict,newObjectList  = ResizeDict(origImgDict,origObjList,dictOfTranslations)
     
     gridImg = plotGridOnImg(outputImg,20,20,newObjectList)
     gridImg.savefig("griddedImage")
+    rotateImage(inpFilePic,'rotaion.jpg',360)
     
-    
-    
+
     

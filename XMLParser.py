@@ -37,7 +37,19 @@ def parseXMLtoDict(fileName):
     
     objectList = []
     ###object dict
-    for eachObj in dictOfAnotations['annotation']['object']:
+    
+    origListOfObjs = []
+    
+    ##test if its a single object hence not in a list 
+    if not isinstance(dictOfAnotations['annotation']['object'],(list,)):
+        
+        origListOfObjs.append(dictOfAnotations['annotation']['object'])
+    
+    ### if its multiple objects
+    elif isinstance(dictOfAnotations['annotation']['object'],(list,)):
+        origListOfObjs = dictOfAnotations['annotation']['object']
+    
+    for eachObj in origListOfObjs :
         objectDict = {}
         
         objectDict['name'] = eachObj['name']
@@ -56,4 +68,4 @@ def parseXMLtoDict(fileName):
 
 if __name__ == '__main__':
     
-    imageDict, objectList = parseXMLtoDict("C:/Users/ntihish/Documents/IUB/Deep Learning/Project/Git Repo/product-recognition/twoObjectsCorrect.xml")
+    imageDict, objectList = parseXMLtoDict("C:/Users/ntihish/Documents/IUB/Deep Learning/Project/Train images/annotations/xmls/Arla-Ecological-Medium-Fat-Milk_001.xml")

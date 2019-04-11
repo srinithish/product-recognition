@@ -3,7 +3,7 @@
 
 
 
-def get_center(bb_x_min, bb_y_min, bb_x_max, bb_y_max):
+def _get_center(bb_x_min, bb_y_min, bb_x_max, bb_y_max):
     x_bb_center = (bb_x_min + bb_x_max) / 2
     y_bb_center = (bb_y_min + bb_y_max) / 2
     
@@ -14,7 +14,7 @@ def get_center(bb_x_min, bb_y_min, bb_x_max, bb_y_max):
 
 
 
-def get_grid_position(image_width, image_height, x_num_grids, y_num_grids, box_center_tuple):
+def _get_grid_position(image_width, image_height, x_num_grids, y_num_grids, box_center_tuple):
     width_cell = image_width / x_num_grids
     height_cell = image_height / y_num_grids
     
@@ -42,10 +42,10 @@ def assign_grid(image_dict, object_dict, x_num_grids, y_num_grids):
     image_height = image_dict['height']
     image_depth = image_dict['depth']
     
-    box_center_tuple = get_center(bb_x_min, bb_y_min, bb_x_max, bb_y_max)
+    box_center_tuple = _get_center(bb_x_min, bb_y_min, bb_x_max, bb_y_max)
 #    print(box_center_tuple)
     
-    return get_grid_position(image_width, image_height, x_num_grids, y_num_grids, box_center_tuple)    
+    return _get_grid_position(image_width, image_height, x_num_grids, y_num_grids, box_center_tuple)    
 
 
 
