@@ -25,8 +25,8 @@ def normalize_coordinates(image_dict,object_dict,grid_row_no,grid_col_no,no_of_r
     cell_width = image_dict["width"] / no_of_col_grids
     
     grid_cell_topleft = {}
-    grid_cell_topleft["x"] = grid_row_no*cell_height
-    grid_cell_topleft["y"] = grid_col_no*cell_width
+    grid_cell_topleft["y"] = grid_row_no*cell_height
+    grid_cell_topleft["x"] = grid_col_no*cell_width
     
     bound_box_center = {}
     bound_box_center["x"] = (object_dict["xmin"] + object_dict["xmax"])/2
@@ -55,8 +55,20 @@ def normalize_box_dimension(image_dict,object_dict):
     return normalized_dimensions
     
     
+def getNormalizedBoxParams(image_dict,object_dict,grid_row_no,grid_col_no,no_of_row_grids,no_of_col_grids):
+    '''
+    Wrapper for the two functions
+    '''
+    normalized_coord = normalize_coordinates(image_dict,object_dict,grid_row_no,grid_col_no,no_of_row_grids,no_of_col_grids)
+    normalized_dimensions = normalize_box_dimension(image_dict,object_dict)
     
+    box_dict = {"bx":normalized_coord["x"],
+                "by":normalized_coord["y"],
+                "bh":normalized_dimensions["height"],
+                "bw":normalized_dimensions["width"]
+                }
     
+    return box_dict
 
     
     

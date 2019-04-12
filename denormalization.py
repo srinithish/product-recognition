@@ -27,12 +27,12 @@ def denormalize_coordinates(image_dict,normalized_coords,grid_row_no,grid_col_no
     cell_width = image_dict["width"] / total_grid_cols
     
     grid_cell_topleft = {}
-    grid_cell_topleft["x"] = grid_row_no*cell_height
-    grid_cell_topleft["y"] = grid_col_no*cell_width
+    grid_cell_topleft["y"] = grid_row_no*cell_height
+    grid_cell_topleft["x"] = grid_col_no*cell_width
     
     denormalized_coord = {}
-    denormalized_coord["x"] = grid_cell_topleft["x"] + (cell_width*normalized_coords["x"])
-    denormalized_coord["y"] = grid_cell_topleft["y"] + (cell_height*normalized_coords["y"])
+    denormalized_coord["x"] = int(grid_cell_topleft["x"] + (cell_width*normalized_coords["x"]))
+    denormalized_coord["y"] = int(grid_cell_topleft["y"] + (cell_height*normalized_coords["y"]))
     
     return denormalized_coord
 
@@ -48,8 +48,8 @@ def denormalize_box_dimension(image_dict,normalized_dimensions):
     denormalized_dimensions = {}
     
     # box_width/image_width
-    denormalized_dimensions["width"] = normalized_dimensions["width"]*image_dict["width"]
-    denormalized_dimensions["height"] = normalized_dimensions["height"]*image_dict["height"]
+    denormalized_dimensions["width"] = int(normalized_dimensions["width"]*image_dict["width"])
+    denormalized_dimensions["height"] = int(normalized_dimensions["height"]*image_dict["height"])
     
     return denormalized_dimensions
     
