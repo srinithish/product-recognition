@@ -20,7 +20,8 @@ def _get_grid_position(image_width, image_height, x_num_grids, y_num_grids, box_
     
     grid_col_num = box_center_tuple[0] // width_cell
     grid_row_num = box_center_tuple[1] // height_cell
-    return grid_row_num, grid_col_num
+    
+    return int(grid_row_num), int(grid_col_num)
 
 
 

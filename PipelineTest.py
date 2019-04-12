@@ -13,22 +13,29 @@ import XMLParser
 import assigngrid
 import normalization
 import denormalization
+import generateTargetVariable
+
+
+xNumGrid = 19
+yNumGrid = 19
+classMappingDict = {'dog': 0, 'cat' : 1}
 
 
 
-    
 inpFilePic = "D:/Assignments/Sem 2/Deep learning/Project/Yolo/dl_project/sample_files/twoObjectsCorrect.jpg"
 inpFileXML = "D:/Assignments/Sem 2/Deep learning/Project/Yolo/dl_project/sample_files/twoObjectsCorrect.xml"
 outputImg = "normalized_img.jpg"
 
-origImgDict, origObjList = XMLParser.parseXMLtoDict(inpFileXML)
-print(origImgDict)
+imageDict, ObjList = XMLParser.parseXMLtoDict(inpFileXML)
+targetArray = generateTargetVariable.genTargetArray(inpFilePic,imageDict, ObjList,xNumGrid,yNumGrid,classMappingDict)
+
+
 
 ##generate new image
 #imageResize(inpFilePic,outputImg,29,29)
 
 # BB
-box_params = normalization.getNormalizedBoxParams(origImgDict,origObjList[1],1,2,3,3)
+
 
 
 filepath = inpFilePic
