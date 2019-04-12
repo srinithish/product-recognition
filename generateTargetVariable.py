@@ -70,7 +70,7 @@ def genTargetArray(imgFile,imageDict, objectList,xNumGrid,yNumGrid,classMappingD
 if __name__ == '__main__':
     
     arr = genTargetArray('',imageDict,objectList,3,3, {'dog': 0, 'cat': 1})
-    arr[1]
+    
 
     
     
