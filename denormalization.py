@@ -55,13 +55,26 @@ def denormalize_box_dimension(image_dict,normalized_dimensions):
     
     
 def getDenormalizedBoxParams(image_dict,normalized_dimensions,normalized_coords,grid_row_no,grid_col_no,total_grid_rows,total_grid_cols):
+    """
+    Returns the xmin,ymin,xmax,ymax
+    """
     box_dimensions = denormalize_box_dimension(image_dict,normalized_dimensions)
     coordinates = denormalize_coordinates(image_dict,normalized_coords,grid_row_no,grid_col_no,total_grid_rows,total_grid_cols)
     
-    box_dict = {"bx":coordinates["x"],
-                "by":coordinates["y"],
-                "bh":box_dimensions["height"],
-                "bw":box_dimensions["width"]
+    xmin = coordinates["x"] - box_dimensions["width"]/2
+    xmax = coordinates["x"] + box_dimensions["width"]/2
+    
+    ymin = coordinates["y"] - box_dimensions["height"]/2
+    ymax = coordinates["y"] + box_dimensions["height"]/2
+    
+    box_dict = {"center_x":coordinates["x"],
+                "center_y":coordinates["y"],
+                "box_h":box_dimensions["height"],
+                "box_w":box_dimensions["width"],
+                "xmin":xmin,
+                "xmax":xmax,
+                "ymin":ymin,
+                "ymax":ymax
                 }
     
     return box_dict
