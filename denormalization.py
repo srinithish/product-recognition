@@ -54,4 +54,14 @@ def denormalize_box_dimension(image_dict,normalized_dimensions):
     return denormalized_dimensions
     
     
+def getDenormalizedBoxParams(image_dict,normalized_dimensions,normalized_coords,grid_row_no,grid_col_no,total_grid_rows,total_grid_cols):
+    box_dimensions = denormalize_box_dimension(image_dict,normalized_dimensions)
+    coordinates = denormalize_coordinates(image_dict,normalized_coords,grid_row_no,grid_col_no,total_grid_rows,total_grid_cols)
     
+    box_dict = {"bx":coordinates["x"],
+                "by":coordinates["y"],
+                "bh":box_dimensions["height"],
+                "bw":box_dimensions["width"]
+                }
+    
+    return box_dict
