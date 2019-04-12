@@ -7,11 +7,12 @@ Created on Thu Apr 11 21:16:41 2019
 from data_aug.data_aug import * 
 import cv2
 import matplotlib.pyplot as plt 
+import numpy as np
 
 def from_object_dict_list(object_dict_list):
     bounding_box_list= []
     for object_dict in object_dict_list:
-        bounding_box_list.append([object_dict['xmin'], object_dict['ymin'], object_dict['xmax'], object_dict['ymax']])
+        bounding_box_list.append([float(object_dict['xmin']), float(object_dict['ymin']), float(object_dict['xmax']), float(object_dict['ymax']), 3])
     return np.array(bounding_box_list) 
 
 def from_bounding_boxes(bounding_boxes):
@@ -28,6 +29,7 @@ def from_bounding_boxes(bounding_boxes):
 
 def get_image_after_roation(img, object_dict_list):
     bounding_box_list = from_object_dict_list(object_dict_list)
+    print(bounding_box_list)
     img_, bboxes_ = RandomHorizontalFlip(1)(img.copy(), bounding_box_list.copy())
     return img_, from_bounding_boxes(bboxes_)
 
@@ -46,6 +48,5 @@ object_dict2['ymax'] = 2302
 object_dict2['ymin'] = 2850
 object_dict_list =  [object_dict1, object_dict2]
 img, new_object_dicts = get_image_after_roation(img, object_dict_list)
-print(new_object_dicts)
 plt.imshow(img)
 
