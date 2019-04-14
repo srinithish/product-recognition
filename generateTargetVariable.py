@@ -70,7 +70,7 @@ if __name__ == '__main__':
     imageDict, objectList = XMLParser.parseXMLtoDict(xmlFile)
 
     arr = genTargetArray('',imageDict,objectList,3,3, {'dog': 0, 'cat': 1})
-    arr[1]
+    
 
     
     
