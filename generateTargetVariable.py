@@ -14,9 +14,6 @@ import normalization
 import denormalization
 import numpy as np
 
-xmlFile =  "C:/Users/ntihish/Documents/IUB/Deep Learning/Project/Git Repo/product-recognition/sample_files/twoObjectsCorrect.xml"
-
-imageDict, objectList = XMLParser.parseXMLtoDict(xmlFile)
 
 
 def genTargetArray(imgFile,imageDict, objectList,xNumGrid,yNumGrid,classMappingDict):
@@ -68,7 +65,10 @@ def genTargetArray(imgFile,imageDict, objectList,xNumGrid,yNumGrid,classMappingD
     return targetArray
 
 if __name__ == '__main__':
-    
+    xmlFile =  "C:/Users/ntihish/Documents/IUB/Deep Learning/Project/Git Repo/product-recognition/sample_files/twoObjectsCorrect.xml"
+
+    imageDict, objectList = XMLParser.parseXMLtoDict(xmlFile)
+
     arr = genTargetArray('',imageDict,objectList,3,3, {'dog': 0, 'cat': 1})
     
 
