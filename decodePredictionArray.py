@@ -25,8 +25,8 @@ def denormPredForEachGrid(image_dict,arrayOf4Elems,grid_row_no,
     
     normalized_coords['x'] = arrayOf4Elems[0] ##x
     normalized_coords['y'] = arrayOf4Elems[1] ## y
-    normalized_dimensions['width'] = arrayOf4Elems[2] ##width
-    normalized_dimensions['height'] = arrayOf4Elems[3] ##height
+    normalized_dimensions['height'] = arrayOf4Elems[2] ##width
+    normalized_dimensions['width'] = arrayOf4Elems[3] ##height
     
     denormalisedBBoxDict = denormalization.getDenormalizedBoxParams(image_dict,
                                             normalized_dimensions,normalized_coords,
@@ -74,7 +74,7 @@ def decodePredArr(image_dict,predictedArray,classMappingDict):
            eachObj['name'] =  reverseMappingDict[classLabelPredsEachGrid[gridRow,gridCol]]
            eachObj['intClass'] = classLabelPredsEachGrid[gridRow,gridCol]
            eachObj['probClass'] = classProbsEachGrid[gridRow,gridCol]
-           
+           eachObj['ObjectnessProb'] = probOfObjectPresent[gridRow,gridCol,0]
            objectList.append(eachObj)
             
     
@@ -90,10 +90,10 @@ if __name__ == '__main__':
     
     
     imageDict, objectList = XMLParser.parseXMLtoDict(xmlFile)   
-    arr = genTargetArray(imgFile,imageDict,objectList,3,3, {'dog': 0, 'cat': 1})
+    TargetArr = generateTargetVariable.genTargetArray(imgFile,imageDict,objectList,3,3, {'dog': 0, 'cat': 1})
     
     
-    objectList = decodePredArr(imageDict,arr,classMappingDict)
+    objectList = decodePredArr(imageDict,TargetArr,classMappingDict)
     gridImg = plotGridAndBound.plotGridOnImg(imgFile,3,3,objectList)
     gridImg.savefig("griddedImage")
                 
