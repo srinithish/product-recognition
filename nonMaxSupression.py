@@ -83,7 +83,7 @@ def non_max_suppression(boxes, probs, labels, overlapThresh=0.5, probThres=0.1,c
     boxes = boxes.astype("float")
     
     # Delete boxes that have very low probability
-    keep_indices = np.where(probs > probThres)
+    keep_indices = np.where(probs >= probThres)
     boxes = boxes[keep_indices]
     probs = probs[keep_indices]
     labels = labels[keep_indices]
@@ -147,6 +147,12 @@ def non_max_suppression(boxes, probs, labels, overlapThresh=0.5, probThres=0.1,c
     # return only the bounding boxes that were picked
     return boxes[pick].astype("int"), labels[pick]
 
+def non_max_supression_wrapper(object_dict,classMappingDict):
+    boxes,probs,labels = input_to_nms(object_dict)
+    boxes,labels = non_max_suppression(boxes, probs, labels, overlapThresh=0.5, probThres=0.1,checkLabels=True)
+    output = convert_output_of_nms(boxes,labels,classMappingDict)
+    return output
+    
 
 if __name__  == "__main__":
     import imageManipulations
