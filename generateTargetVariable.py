@@ -48,7 +48,7 @@ def genTargetArray(imgFile,imageDict, objectList,xNumGrid,yNumGrid,classMappingD
                                                                    xNumGrid,yNumGrid)
         
         ###update box params to vector
-        objVector[1] =  normalisedBoxParams['bx']
+        objVector[1] = normalisedBoxParams['bx']
         objVector[2] = normalisedBoxParams['by']
         objVector[3] = normalisedBoxParams['bh']
         objVector[4] = normalisedBoxParams['bw']

@@ -31,14 +31,14 @@ def addBoundingBox(plt,objectList):
                                  linewidth=5,edgecolor='r',facecolor='none')
         
         plt.scatter(x=[centerX], y=[centerY], c='r', s=40)
-        plt.text(centerX, centerY, eachObj['name'], fontsize = 30 ,color = 'red')
+#        plt.text(centerX, centerY, eachObj['name'], fontsize = 30 ,color = 'red')
         ax.add_patch(rect)
     
     return plt
     
     
     
-def plotGridOnImg(filepath,numXGrids,numYGrids,objectList):
+def plotGridOnImg(filepath,numXGrids,numYGrids,objectList,grid = True):
     
     """
     
@@ -53,14 +53,15 @@ def plotGridOnImg(filepath,numXGrids,numYGrids,objectList):
     xSteps,ySteps = xPixels//numXGrids , yPixels//numYGrids
     
 #    print(xSteps,ySteps)
+    if grid == True:
     ## horizontal lines
-    for xCordLine in range(0,xPixels,xSteps):   
+        for xCordLine in range(0,xPixels,xSteps):   
+            
+            plt.axvline(x=xCordLine,linewidth  = 2)
         
-        plt.axvline(x=xCordLine,linewidth  = 2)
-    
-    ### vertical lines
-    for yCordLine in range(0,yPixels,ySteps):
-        plt.axhline(y=yCordLine,linewidth  = 2)
+        ### vertical lines
+        for yCordLine in range(0,yPixels,ySteps):
+            plt.axhline(y=yCordLine,linewidth  = 2)
     
     
     addBoundingBox(plt,objectList)

@@ -52,6 +52,8 @@ def convert_op_nms(boxes,labels,classMappingDict):
     n = boxes.shape[0]
     output = []
     
+    reverseMappingDict = {value: key for key, value in classMappingDict.items()}
+    
     for i in range(n):
         box_dict = {}
         box_dict["xmin"] = boxes[i][0]
@@ -59,7 +61,7 @@ def convert_op_nms(boxes,labels,classMappingDict):
         box_dict["xmax"] = boxes[i][2]
         box_dict["ymax"] = boxes[i][3]
         box_dict["intClass"] = labels[i]
-        box_dict["name"] = classMappingDict[labels[i]]
+        box_dict["name"] = reverseMappingDict[labels[i]]
         output.append(box_dict)
     
     return output
