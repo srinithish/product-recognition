@@ -85,17 +85,17 @@ ImgDictsPath = "C:/Users/ntihish/Documents/IUB/Deep Learning/Project/Train image
 with open(ImgDictsPath, 'rb') as f:
   imageDicts = pickle.load(f)
     
-imgFile = "C:/Users/ntihish/Documents/IUB/Deep Learning/Project/Train images/Reshaped/images/Arla-Ecological-Medium-Fat-Milk_003.jpg"
+imgFile = "C:/Users/ntihish/Documents/IUB/Deep Learning/Project/Train images/Reshaped/images/Arla-Ecological-Medium-Fat-Milk_002.jpg"
 
 predictionPath = "C:/Users/ntihish/Documents/IUB/Deep Learning/Project/Train images/Reshaped/annotations/PredictionArray.pkl"
 
 with open(predictionPath, 'rb') as f:
   PredictionY = pickle.load(f) 
 
-objectList = decodePredictionArray.decodePredArr(imageDicts[2],PredictionY[2],classMappingDict)
+objectList = decodePredictionArray.decodePredArr(imageDicts[1],PredictionY[1],classMappingDict)
 
 boxes, probs, labels = nonMaxSupression.input_to_nms(objectList)
-boxes,labels = nonMaxSupression.non_max_suppression(boxes, probs, labels, overlapThresh=0.5, probThres=0.29,checkLabels=True)
+boxes,labels = nonMaxSupression.non_max_suppression(boxes, probs, labels, overlapThresh=0.5, probThres=0.22,checkLabels=True)
 newObjList  = nonMaxSupression.convert_op_nms(boxes,labels,classMappingDict)
 
 gridImg = plotGridAndBound.plotGridOnImg(imgFile,19,19,newObjList,grid =False)
