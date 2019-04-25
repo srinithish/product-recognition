@@ -29,7 +29,7 @@ import nonMaxSupression
 """
 Note: need to change class mapping dict as required as global variable 
 """
-classMappingDict = {'milk':0,'tomato': 1, 'apple':2 , 'eggs':3 ,'onion': 4,
+classMappingDict = {'Milk':0,'tomato': 1, 'apple':2 , 'eggs':3 ,'onion': 4,
                     'salt':5, 'yogurt': 6, 'sugar': 7, 'butter': 8, 'orange':9}
 
 ###has all of the Image informations as list of dicts
@@ -40,7 +40,7 @@ classMappingDict = {'milk':0,'tomato': 1, 'apple':2 , 'eggs':3 ,'onion': 4,
 
 
 def visualisePredictions(trueImgDict,trueObjList,imgPath,eachPredictionArray,
-                         overlapThresh=0.5,probThres=0):
+                         overlapThresh,probThres):
     """
     Should shange the thresholds if required
     change grid size as well if needed
@@ -70,7 +70,7 @@ def visualise_preds_for_set_of_images(imgfilePattern,
                                       ImgDictsPath_True_Path,
                                       ObjLists_True_Path,
                                       predictionArrayPath,
-                                      overlapThresh=0.5,probThres=0,
+                                      overlapThresh=0.5,probThres=0.5,
                                       maxImagesToPlot = 10):
     
     """
@@ -100,7 +100,7 @@ def visualise_preds_for_set_of_images(imgfilePattern,
         visualisePredictions(ListOf_imgDicts_true[index],
                              ListOf_ObjLists_true[index],imgFilePaths_list[index],
                              ListOf_PredictionY[index],
-                             overlapThresh=0.5,probThres=0)
+                             overlapThresh,probThres)
         
 
 
@@ -142,8 +142,8 @@ if __name__ == '__main__':
                                       ImgDictsPath_True_Path,
                                       ObjLists_True_Path,
                                       predictionArrayPath,
-                                      overlapThresh=0.5,probThres=0,
-                                      maxImagesToPlot = 3)
+                                      overlapThresh = 0.5,probThres= 0.0001,
+                                      maxImagesToPlot = 1)
     
     
     
