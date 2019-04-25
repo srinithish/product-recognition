@@ -15,7 +15,8 @@ import numpy as np
 import generateTargetVariable
 
 
-classMappingDict = {'dog': 0, 'cat' : 1}
+classMappingDict = {'milk':0,'tomato': 1, 'apple':2 , 'eggs':3 ,'onion': 4,
+                    'salt':5, 'yogurt': 6, 'sugar': 7, 'butter': 8, 'orange':9}
 
 def denormPredForEachGrid(image_dict,arrayOf4Elems,grid_row_no,
                           grid_col_no,total_grid_rows,total_grid_cols):

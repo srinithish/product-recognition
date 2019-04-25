@@ -8,19 +8,21 @@ from sklearn.metrics import mean_squared_error
 import numpy as np
 
 def get_details(row, col, tensor):
-    class_prob = tensor[row][col][0]
+    objectnessProb = tensor[row][col][0]
     x = tensor[row][col][1]
     y = tensor[row][col][2]
     w = tensor[row][col][3]
     h = tensor[row][col][4]
-    return class_prob, x, y, w, h
+    return objectnessProb, x, y, w, h
     
 def yolo_loss(predicted, ground_truth):
     rows = predicted.shape[0]
     cols = predicted.shape[1]
     
     localization_loss = 0
+    
     lambda_cordinates = 0
+    
     dimension_loss = 0
     for row in range(rows):
         for col in range(cols):
