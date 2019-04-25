@@ -10,6 +10,7 @@ Created on Tue Apr  9 20:37:12 2019
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import numpy as np
+from XMLParser import parseXMLtoDict
 
 def addBoundingBox(plt,objectList,dispClassLabel =True):
     
