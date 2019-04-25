@@ -68,4 +68,4 @@ def parseXMLtoDict(fileName):
 
 if __name__ == '__main__':
     
-    imageDict, objectList = parseXMLtoDict("C:/Users/ntihish/Documents/IUB/Deep Learning/Project/Train images/annotations/xmls/Arla-Ecological-Medium-Fat-Milk_001.xml")
+    imageDict, objectList = parseXMLtoDict("./Train images/annotations/xmls/Arla-Ecological-Medium-Fat-Milk_001.xml")

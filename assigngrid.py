@@ -31,6 +31,7 @@ def _get_grid_position(image_width, image_height, x_num_grids, y_num_grids, box_
 
 
 def assign_grid(image_dict, object_dict, x_num_grids, y_num_grids):
+    
     image_class = object_dict['name']
     bb_x_min = object_dict['xmin']
     bb_y_min = object_dict['ymin']
