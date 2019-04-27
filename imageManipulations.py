@@ -102,8 +102,8 @@ if __name__ == "__main__":
     
     ### pipeline
     
-    inpFilePic = "C:/Users/ntihish/Documents/IUB/Deep Learning/Project/Git Repo/product-recognition/sample_files/twoObjectCorrect.jpg"
-    inpFileXML = "C:/Users/ntihish/Documents/IUB/Deep Learning/Project/Git Repo/product-recognition/sample_files/twoObjectsCorrect.xml"
+    inpFilePic = "./sample_files/twoObjectCorrect.jpg"
+    inpFileXML = "./sample_files/twoObjectsCorrect.xml"
     outputImg = 'resized.jpg'
     origImgDict, origObjList = parseXMLtoDict(inpFileXML)
     

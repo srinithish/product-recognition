@@ -1,0 +1,26 @@
+<annotation>
+	<folder>renamed_images</folder>
+	<filename>56.jpg</filename>
+	<path>G:\Git\product-recognition\renamed_images\56.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>5312</width>
+		<height>2988</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>milk</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1764</xmin>
+			<ymin>215</ymin>
+			<xmax>3561</xmax>
+			<ymax>2169</ymax>
+		</bndbox>
+	</object>
+</annotation>

@@ -138,10 +138,10 @@ def non_max_suppression(boxes, probs, labels, overlapThresh=0.5, probThres=0.1,c
         # delete all indexes from the index list that have overlap greater
         # than the provided overlap threshold
         if checkLabels:
-            overlap_idxs = overlap > overlapThresh
-            diff_labels = labels[:last] != labels[i]
+            overlap_idxs = overlap >= overlapThresh
+            same_labels = labels[:last] == labels[i]
             idxs = np.delete(idxs, np.concatenate(([last],
-                                                   np.where(np.logical_and(overlap_idxs,diff_labels))[0])))
+                                                   np.where(np.logical_and(overlap_idxs,same_labels))[0])))
         else:
             idxs = np.delete(idxs, np.concatenate(([last],
                                                    np.where(overlap > overlapThresh)[0])))
@@ -149,10 +149,11 @@ def non_max_suppression(boxes, probs, labels, overlapThresh=0.5, probThres=0.1,c
     # return only the bounding boxes that were picked
     return boxes[pick].astype("int"), labels[pick]
 
-def non_max_supression_wrapper(object_dict,classMappingDict):
+def non_max_supression_wrapper(object_dict,classMappingDict,overlapThresh=0.5,probThres=0.1):
     boxes,probs,labels = input_to_nms(object_dict)
-    boxes,labels = non_max_suppression(boxes, probs, labels, overlapThresh=0.5, probThres=0.1,checkLabels=True)
-    output = convert_output_of_nms(boxes,labels,classMappingDict)
+    boxes,labels = non_max_suppression(boxes, probs, labels, 
+                                       overlapThresh=overlapThresh, probThres=probThres,checkLabels=True)
+    output = convert_op_nms(boxes,labels,classMappingDict)
     return output
     
 
