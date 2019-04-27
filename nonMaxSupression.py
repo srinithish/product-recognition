@@ -138,10 +138,10 @@ def non_max_suppression(boxes, probs, labels, overlapThresh=0.5, probThres=0.1,c
         # delete all indexes from the index list that have overlap greater
         # than the provided overlap threshold
         if checkLabels:
-            overlap_idxs = overlap > overlapThresh
-            diff_labels = labels[:last] != labels[i]
+            overlap_idxs = overlap >= overlapThresh
+            same_labels = labels[:last] == labels[i]
             idxs = np.delete(idxs, np.concatenate(([last],
-                                                   np.where(np.logical_and(overlap_idxs,diff_labels))[0])))
+                                                   np.where(np.logical_and(overlap_idxs,same_labels))[0])))
         else:
             idxs = np.delete(idxs, np.concatenate(([last],
                                                    np.where(overlap > overlapThresh)[0])))
