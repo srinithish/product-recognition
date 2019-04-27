@@ -1,0 +1,26 @@
+<annotation>
+	<folder>renamed_images</folder>
+	<filename>104.jpg</filename>
+	<path>G:\Git\product-recognition\renamed_images\104.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>5312</width>
+		<height>2988</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>sugar</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>421</xmin>
+			<ymin>347</ymin>
+			<xmax>2886</xmax>
+			<ymax>2494</ymax>
+		</bndbox>
+	</object>
+</annotation>
