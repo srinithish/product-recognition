@@ -1,7 +1,7 @@
 <annotation>
 	<folder>renamed_images</folder>
-	<filename>86.jpg</filename>
-	<path>G:\Git\product-recognition\renamed_images\86.jpg</path>
+	<filename>56.jpg</filename>
+	<path>G:\Git\product-recognition\renamed_images\56.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -12,15 +12,15 @@
 	</size>
 	<segmented>0</segmented>
 	<object>
-		<name>salt</name>
+		<name>milk</name>
 		<pose>Unspecified</pose>
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>1687</xmin>
-			<ymin>194</ymin>
-			<xmax>4168</xmax>
-			<ymax>2675</ymax>
+			<xmin>1764</xmin>
+			<ymin>215</ymin>
+			<xmax>3561</xmax>
+			<ymax>2169</ymax>
 		</bndbox>
 	</object>
 </annotation>

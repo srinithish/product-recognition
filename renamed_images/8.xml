@@ -1,7 +1,7 @@
 <annotation>
 	<folder>renamed_images</folder>
 	<filename>8.jpg</filename>
-	<path>C:/Users/ntihish/Documents/IUB/Deep Learning/Project/Git Repo/product-recognition/renamed_images/8.jpg</path>
+	<path>G:\Git\product-recognition\renamed_images\8.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -19,8 +19,8 @@
 		<bndbox>
 			<xmin>2009</xmin>
 			<ymin>1554</ymin>
-			<xmax>3240</xmax>
-			<ymax>2558</ymax>
+			<xmax>3268</xmax>
+			<ymax>2767</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -29,10 +29,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>720</xmin>
-			<ymin>1489</ymin>
+			<xmin>688</xmin>
+			<ymin>1430</ymin>
 			<xmax>1599</xmax>
-			<ymax>2040</ymax>
+			<ymax>2130</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -53,10 +53,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>1033</xmin>
-			<ymin>640</ymin>
-			<xmax>2747</xmax>
-			<ymax>1330</ymax>
+			<xmin>1062</xmin>
+			<ymin>653</ymin>
+			<xmax>2822</xmax>
+			<ymax>1417</ymax>
 		</bndbox>
 	</object>
 </annotation>

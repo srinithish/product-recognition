@@ -1,7 +1,7 @@
 <annotation>
-	<folder>Project</folder>
+	<folder>renamed_images</folder>
 	<filename>21.jpg</filename>
-	<path>G:\Git\product-recognition\images\img\Project\21.jpg</path>
+	<path>G:\Git\product-recognition\renamed_images\21.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -17,10 +17,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>2908</xmin>
+			<xmin>2915</xmin>
 			<ymin>1287</ymin>
 			<xmax>3518</xmax>
-			<ymax>1763</ymax>
+			<ymax>1810</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -31,8 +31,8 @@
 		<bndbox>
 			<xmin>1755</xmin>
 			<ymin>1730</ymin>
-			<xmax>2625</xmax>
-			<ymax>2413</ymax>
+			<xmax>2638</xmax>
+			<ymax>2490</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -81,6 +81,18 @@
 			<ymin>410</ymin>
 			<xmax>2492</xmax>
 			<ymax>897</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>salt</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>2502</xmin>
+			<ymin>677</ymin>
+			<xmax>3132</xmax>
+			<ymax>1280</ymax>
 		</bndbox>
 	</object>
 </annotation>

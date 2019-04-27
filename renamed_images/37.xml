@@ -84,7 +84,7 @@
 		</bndbox>
 	</object>
 	<object>
-		<name>yoghurt</name>
+		<name>yogurt</name>
 		<pose>Unspecified</pose>
 		<truncated>0</truncated>
 		<difficult>0</difficult>

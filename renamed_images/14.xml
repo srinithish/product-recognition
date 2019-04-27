@@ -1,7 +1,7 @@
 <annotation>
 	<folder>renamed_images</folder>
 	<filename>14.jpg</filename>
-	<path>C:/Users/ntihish/Documents/IUB/Deep Learning/Project/Git Repo/product-recognition/renamed_images/14.jpg</path>
+	<path>G:\Git\product-recognition\renamed_images\14.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -65,8 +65,8 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>1999</xmin>
-			<ymin>727</ymin>
+			<xmin>2002</xmin>
+			<ymin>680</ymin>
 			<xmax>2444</xmax>
 			<ymax>1058</ymax>
 		</bndbox>
@@ -77,10 +77,70 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>2378</xmin>
-			<ymin>478</ymin>
+			<xmin>2365</xmin>
+			<ymin>287</ymin>
 			<xmax>3971</xmax>
 			<ymax>2216</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>onion</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1112</xmin>
+			<ymin>2370</ymin>
+			<xmax>1312</xmax>
+			<ymax>2513</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>tomato</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1008</xmin>
+			<ymin>2507</ymin>
+			<xmax>1115</xmax>
+			<ymax>2547</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>butter</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>712</xmin>
+			<ymin>2390</ymin>
+			<xmax>995</xmax>
+			<ymax>2567</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>milk</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1008</xmin>
+			<ymin>2580</ymin>
+			<xmax>1505</xmax>
+			<ymax>2997</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>sugar</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>678</xmin>
+			<ymin>2607</ymin>
+			<xmax>838</xmax>
+			<ymax>2980</ymax>
 		</bndbox>
 	</object>
 </annotation>

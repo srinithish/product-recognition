@@ -23,4 +23,28 @@
 			<ymax>1713</ymax>
 		</bndbox>
 	</object>
+	<object>
+		<name>eggs</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1655</xmin>
+			<ymin>207</ymin>
+			<xmax>3328</xmax>
+			<ymax>1290</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>milk</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1605</xmin>
+			<ymin>1717</ymin>
+			<xmax>3472</xmax>
+			<ymax>3007</ymax>
+		</bndbox>
+	</object>
 </annotation>

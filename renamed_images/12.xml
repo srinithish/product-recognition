@@ -1,7 +1,7 @@
 <annotation>
-	<folder>Project</folder>
+	<folder>renamed_images</folder>
 	<filename>12.jpg</filename>
-	<path>G:\Git\product-recognition\images\img\Project\12.jpg</path>
+	<path>G:\Git\product-recognition\renamed_images\12.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -31,8 +31,8 @@
 		<bndbox>
 			<xmin>1735</xmin>
 			<ymin>1853</ymin>
-			<xmax>2562</xmax>
-			<ymax>2443</ymax>
+			<xmax>2555</xmax>
+			<ymax>2533</ymax>
 		</bndbox>
 	</object>
 	<object>

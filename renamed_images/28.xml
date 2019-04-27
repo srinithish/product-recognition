@@ -1,7 +1,7 @@
 <annotation>
-	<folder>Project</folder>
+	<folder>renamed_images</folder>
 	<filename>28.jpg</filename>
-	<path>G:\Git\product-recognition\images\img\Project\28.jpg</path>
+	<path>G:\Git\product-recognition\renamed_images\28.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -72,15 +72,15 @@
 		</bndbox>
 	</object>
 	<object>
-		<name>eggs</name>
+		<name>apple</name>
 		<pose>Unspecified</pose>
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>1588</xmin>
-			<ymin>493</ymin>
-			<xmax>2785</xmax>
-			<ymax>1693</ymax>
+			<xmin>1608</xmin>
+			<ymin>1767</ymin>
+			<xmax>1835</xmax>
+			<ymax>2160</ymax>
 		</bndbox>
 	</object>
 </annotation>

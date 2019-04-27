@@ -1,7 +1,7 @@
 <annotation>
 	<folder>renamed_images</folder>
-	<filename>1.jpg</filename>
-	<path>G:\Git\product-recognition\renamed_images\1.jpg</path>
+	<filename>30.jpg</filename>
+	<path>G:\Git\product-recognition\renamed_images\30.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -12,39 +12,15 @@
 	</size>
 	<segmented>0</segmented>
 	<object>
-		<name>yogurt</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>1458</xmin>
-			<ymin>1223</ymin>
-			<xmax>2323</xmax>
-			<ymax>1910</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>sugar</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>2332</xmin>
-			<ymin>1337</ymin>
-			<xmax>2751</xmax>
-			<ymax>2143</ymax>
-		</bndbox>
-	</object>
-	<object>
 		<name>onion</name>
 		<pose>Unspecified</pose>
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>2748</xmin>
-			<ymin>1206</ymin>
-			<xmax>3148</xmax>
-			<ymax>1616</ymax>
+			<xmin>2282</xmin>
+			<ymin>1590</ymin>
+			<xmax>2812</xmax>
+			<ymax>2113</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -53,10 +29,22 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>3047</xmin>
-			<ymin>778</ymin>
-			<xmax>3454</xmax>
-			<ymax>1102</ymax>
+			<xmin>2302</xmin>
+			<ymin>2280</ymin>
+			<xmax>2798</xmax>
+			<ymax>2847</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>onion</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>2268</xmin>
+			<ymin>823</ymin>
+			<xmax>2872</xmax>
+			<ymax>1363</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -65,46 +53,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>2495</xmin>
-			<ymin>470</ymin>
-			<xmax>2878</xmax>
-			<ymax>834</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>salt</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>1948</xmin>
-			<ymin>690</ymin>
-			<xmax>2637</xmax>
-			<ymax>1102</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>butter</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
 			<xmin>1982</xmin>
-			<ymin>1213</ymin>
-			<xmax>2554</xmax>
-			<ymax>1306</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>onion</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>2937</xmin>
-			<ymin>430</ymin>
-			<xmax>3318</xmax>
-			<ymax>737</ymax>
+			<ymin>1983</ymin>
+			<xmax>2275</xmax>
+			<ymax>2480</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -113,10 +65,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>2609</xmin>
-			<ymin>1102</ymin>
-			<xmax>2830</xmax>
-			<ymax>1258</ymax>
+			<xmin>1205</xmin>
+			<ymin>1123</ymin>
+			<xmax>1348</xmax>
+			<ymax>1230</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -125,10 +77,70 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>2723</xmin>
-			<ymin>871</ymin>
-			<xmax>3013</xmax>
-			<ymax>1106</ymax>
+			<xmin>2095</xmin>
+			<ymin>660</ymin>
+			<xmax>2488</xmax>
+			<ymax>797</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>milk</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>952</xmin>
+			<ymin>1240</ymin>
+			<xmax>1322</xmax>
+			<ymax>1563</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>yogurt</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>922</xmin>
+			<ymin>1570</ymin>
+			<xmax>1275</xmax>
+			<ymax>1723</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>salt</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1258</xmin>
+			<ymin>1737</ymin>
+			<xmax>1375</xmax>
+			<ymax>1883</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>butter</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1178</xmin>
+			<ymin>1753</ymin>
+			<xmax>1252</xmax>
+			<ymax>1920</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>sugar</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1352</xmin>
+			<ymin>1003</ymin>
+			<xmax>2262</xmax>
+			<ymax>1970</ymax>
 		</bndbox>
 	</object>
 </annotation>
