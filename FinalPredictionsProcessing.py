@@ -29,7 +29,7 @@ import nonMaxSupression
 """
 Note: need to change class mapping dict as required as global variable 
 """
-classMappingDict = {'Milk':0,'tomato': 1, 'apple':2 , 'eggs':3 ,'onion': 4,
+classMappingDict = {'milk':0,'tomato': 1, 'apple':2 , 'eggs':3 ,'onion': 4,
                     'salt':5, 'yogurt': 6, 'sugar': 7, 'butter': 8, 'orange':9}
 
 ###has all of the Image informations as list of dicts
@@ -143,7 +143,7 @@ if __name__ == '__main__':
                                       ObjLists_True_Path,
                                       predictionArrayPath,
                                       overlapThresh = 0.5,probThres= 0.0001,
-                                      maxImagesToPlot = 1)
+                                      maxImagesToPlot = 3)
     
     
     
