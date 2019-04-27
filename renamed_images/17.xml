@@ -1,7 +1,7 @@
 <annotation>
 	<folder>renamed_images</folder>
 	<filename>17.jpg</filename>
-	<path>C:/Users/ntihish/Documents/IUB/Deep Learning/Project/Git Repo/product-recognition/renamed_images/17.jpg</path>
+	<path>G:\Git\product-recognition\renamed_images\17.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -105,6 +105,54 @@
 			<ymin>558</ymin>
 			<xmax>3726</xmax>
 			<ymax>2620</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>milk</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>828</xmin>
+			<ymin>2537</ymin>
+			<xmax>1325</xmax>
+			<ymax>2970</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>butter</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>508</xmin>
+			<ymin>2333</ymin>
+			<xmax>815</xmax>
+			<ymax>2520</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>tomato</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>815</xmin>
+			<ymin>2430</ymin>
+			<xmax>948</xmax>
+			<ymax>2517</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>sugar</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>442</xmin>
+			<ymin>2523</ymin>
+			<xmax>808</xmax>
+			<ymax>2927</ymax>
 		</bndbox>
 	</object>
 </annotation>
