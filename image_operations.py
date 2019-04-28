@@ -37,8 +37,9 @@ def get_image_after_horizontal_flip(img, object_dict_list):
 def get_image_after_rotation(img, image_dict, angle, object_dict_list):
     bounding_box_list = from_object_dict_list(object_dict_list)
     img_, bboxes_ = Rotate(angle)(img.copy(), bounding_box_list.copy())
-    image_dict['width'] = img_.shape[0]
-    image_dict['height'] = img_.shape[1] 
+#    image_dict['width'] = img_.shape[0]
+#    image_dict['height'] = img_.shape[1] 
+   
     return img_, image_dict, from_bounding_boxes(bboxes_, object_dict_list)
 
 def get_image_after_shear(img, shear, object_dict_list):

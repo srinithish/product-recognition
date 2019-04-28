@@ -25,6 +25,8 @@ import numpy as np
 import pickle
 import nonMaxSupression
 
+
+GRID_SIZE = 19
 ###image dicts   
 """
 Note: need to change class mapping dict as required as global variable 
@@ -40,7 +42,7 @@ classMappingDict = {'milk':0,'tomato': 1, 'apple':2 , 'eggs':3 ,'onion': 4,
 
 
 def visualisePredictions(trueImgDict,trueObjList,imgPath,eachPredictionArray,
-                         overlapThresh,probThres):
+                         overlapThresh,probThres,dispClassLabel):
     """
     Should shange the thresholds if required
     change grid size as well if needed
@@ -56,8 +58,8 @@ def visualisePredictions(trueImgDict,trueObjList,imgPath,eachPredictionArray,
     postNonMaxPredObjList = nonMaxSupression.non_max_supression_wrapper(pred_objectList,classMappingDict,
                                                                      overlapThresh,probThres)
     
-    gridImg = plotGridAndBound.plotGridOnImg(imgPath,19,19,postNonMaxPredObjList,
-                                             grid =False, dispClassLabel = False)
+    gridImg = plotGridAndBound.plotGridOnImg(imgPath,GRID_SIZE,GRID_SIZE,postNonMaxPredObjList,
+                                             grid =False, dispClassLabel)
 
     
     plt.figure()
@@ -66,12 +68,12 @@ def visualisePredictions(trueImgDict,trueObjList,imgPath,eachPredictionArray,
     
 
 
-def visualise_preds_for_set_of_images(imgfilePattern,
+def visualise_preds_for_set_of_images(imgFilePathList,
                                       ImgDictsPath_True_Path,
                                       ObjLists_True_Path,
                                       predictionArrayPath,
                                       overlapThresh=0.5,probThres=0.5,
-                                      maxImagesToPlot = 10):
+                                      maxImagesToPlot = 10,dispClassLabel = False):
     
     """
     requires :
@@ -81,7 +83,7 @@ def visualise_preds_for_set_of_images(imgfilePattern,
     imagepaths list
     """
     global classMappingDict
-    imgFilePaths_list = sorted(glob.glob(imgfilePattern))
+    imgFilePaths_list = imgFilePathList
 
 
     
@@ -100,7 +102,7 @@ def visualise_preds_for_set_of_images(imgfilePattern,
         visualisePredictions(ListOf_imgDicts_true[index],
                              ListOf_ObjLists_true[index],imgFilePaths_list[index],
                              ListOf_PredictionY[index],
-                             overlapThresh,probThres)
+                             overlapThresh,probThres,dispClassLabel)
         
 
 
