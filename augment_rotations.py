@@ -25,10 +25,13 @@ import pickle
 import nonMaxSupression
 from image_operations import get_image_after_rotation
 
-inpfilePattern = "./Train images/New Cutom Dataset Trial/OrigData/images/*"
-inpXmlFiles = "./Train images/New Cutom Dataset Trial/OrigData/xmls/*"
-outputdirImages = "./Train images/New Cutom Dataset Trial/augmented data/images/"
-outputAnnotations = "./Train images/New Cutom Dataset Trial/augmented data/annotations/"
+
+
+inpfilePattern = "./renamed_images/Original Images/images/*"
+inpXmlFiles = "./renamed_images/Original Images/xmls/*"
+
+outputdirImages = "./renamed_images/augmented data/images/"
+outputAnnotations = "./renamed_images/augmented data/annotations/"
 
 
 
@@ -53,7 +56,7 @@ for inpfile,inpXmlFile in zip(sorted(glob.glob(inpfilePattern)),sorted(glob.glob
     origBasefileName_noext,extension = os.path.splitext(origBasefileName)
 #    imgOutputFilePath = outputdir + outputfileName
 #    imageManipulations.imageResize(inpfile,imgOutputFilePath,342,342)
-    
+    print(origBasefileName)
     ### create image X variable
     plt.clf()
  
@@ -66,7 +69,7 @@ for inpfile,inpXmlFile in zip(sorted(glob.glob(inpfilePattern)),sorted(glob.glob
     """
     Original image all as imgNumpyArray,imgDict,objList,targetArray, imgfileName
     """
-    AllImageAsNPArray.append(orig_img_array)
+#    AllImageAsNPArray.append(orig_img_array)
 
     origImgDict, origObjList = XMLParser.parseXMLtoDict(inpXmlFile)
     

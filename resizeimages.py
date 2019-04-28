@@ -36,11 +36,11 @@ GRID_SIZE = 19
 
 
 ### change dirs
-inpImagesfileDir = "./Train images/New Cutom Dataset Trial/augmented data/images/"
-inpAnnotations = "./Train images/New Cutom Dataset Trial/augmented data/annotations/"
+inpImagesfileDir = "./renamed_images/augmented data/images/"
+inpAnnotations = "./renamed_images/augmented data/annotations/"
 
-outputdirImages = "./Train images/New Cutom Dataset Trial/resized/images/"
-outputAnnotations = "./Train images/New Cutom Dataset Trial/resized/annotations/"
+outputdirImages = "./renamed_images/resized/images/"
+outputAnnotations = "./renamed_images/resized/annotations/"
 
 
 
@@ -92,7 +92,7 @@ for index,inpBasefileName in enumerate(imgfileNamesList):
     newAllObjectsList.append(newObjectList)
     
     newAllImgTargetArray.append(newEachImgTarget)
-    newImgfileNamesList.append(outputImagepath)
+    newImgfileNamesList.append(inpBasefileName)
 
 
 with open(outputAnnotations+'/ImageDictsAllFiles.pkl', 'wb') as f:
