@@ -149,7 +149,6 @@ def non_max_suppression(boxes, probs, labels, overlapThresh=0.5, probThres=0.1,c
             idxs = np.delete(idxs, np.concatenate(([last],
                                                    np.where(overlap > overlapThresh)[0])))
             
-        break
 
     # return only the bounding boxes that were picked
     return boxes[pick].astype("int"), labels[pick]
