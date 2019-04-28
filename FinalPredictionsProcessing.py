@@ -59,7 +59,7 @@ def visualisePredictions(trueImgDict,trueObjList,imgPath,eachPredictionArray,
                                                                      overlapThresh,probThres)
     
     gridImg = plotGridAndBound.plotGridOnImg(imgPath,GRID_SIZE,GRID_SIZE,postNonMaxPredObjList,
-                                             grid =False, dispClassLabel)
+                                             dispClassLabel,grid =False)
 
     
     plt.figure()
