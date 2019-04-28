@@ -104,6 +104,8 @@ def non_max_suppression(boxes, probs, labels, overlapThresh=0.5, probThres=0.1,c
     # bottom-left y-coordinate)
     area = (x2 - x1) * (y2 - y1)
 
+    # To handle area == 0, add a small value
+    epsilon = 10**-50
     # sort the indexes, this gives the grid cell with highest probability of having an object
     idxs = np.argsort(probs) # [1,2,3..9]
 
@@ -133,7 +135,8 @@ def non_max_suppression(boxes, probs, labels, overlapThresh=0.5, probThres=0.1,c
 
         # compute the ratio of overlap
         # Overap = overlap box area / area of box under consideration
-        overlap = (w * h) / area[idxs[:last]]
+#        print(w.shape,h.shape)
+        overlap = (w * h) / (area[idxs[:last]] + epsilon)
 
         # delete all indexes from the index list that have overlap greater
         # than the provided overlap threshold
@@ -145,6 +148,8 @@ def non_max_suppression(boxes, probs, labels, overlapThresh=0.5, probThres=0.1,c
         else:
             idxs = np.delete(idxs, np.concatenate(([last],
                                                    np.where(overlap > overlapThresh)[0])))
+            
+        break
 
     # return only the bounding boxes that were picked
     return boxes[pick].astype("int"), labels[pick]
