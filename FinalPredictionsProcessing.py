@@ -126,24 +126,24 @@ if __name__ == '__main__':
     Pretraining informations
     """
     ##pickle files
-    ImgDictsPath_True_Path = "C:/Users/ntihish/Documents/IUB/Deep Learning/Project/Train images/Reshaped/annotations/resizedImageDictsAllFiles.pkl"
-    ObjLists_True_Path = "C:/Users/ntihish/Documents/IUB/Deep Learning/Project/Train images/Reshaped/annotations/resizedObjectListsAllFiles.pkl"
+    ImgDictsPath_True_Path = "Train images/Reshaped/annotations/resizedImageDictsAllFiles.pkl"
+    ObjLists_True_Path = "Train images/Reshaped/annotations/resizedObjectListsAllFiles.pkl"
     ###gets all the image as list
-    imagefilePattern = "C:/Users/ntihish/Documents/IUB/Deep Learning/Project/Train images/images/Arla*"
+    imagefilePattern = "Train images/images/Arla*"
     
     
     """
     Prediction informations
     """
     #### prediction array pickle path
-    predictionArrayPath = "C:/Users/ntihish/Documents/IUB/Deep Learning/Project/Train images/Reshaped/annotations/PredictionArray.pkl"
+    predictionArrayPath = "Train images/Reshaped/annotations/PredictionArray.pkl"
 
     visualise_preds_for_set_of_images(imagefilePattern,
                                       ImgDictsPath_True_Path,
                                       ObjLists_True_Path,
                                       predictionArrayPath,
-                                      overlapThresh = 0.5,probThres= 0.0001,
-                                      maxImagesToPlot = 3)
+                                      overlapThresh = 0.5,probThres= 0.9,
+                                      maxImagesToPlot = 10)
     
     
     
