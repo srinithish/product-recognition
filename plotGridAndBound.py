@@ -29,11 +29,11 @@ def addBoundingBox(plt,objectList,dispClassLabel =True):
         centerX = int((eachObj['xmax'] + eachObj['xmin'])/2)
         centerY = int((eachObj['ymax'] + eachObj['ymin'])/2)
         rect = patches.Rectangle((xLeft,yLeft),objWidth,objHeight,
-                                 linewidth=5,edgecolor='r',facecolor='none')
+                                 linewidth=2,edgecolor='r',facecolor='none')
         
-        plt.scatter(x=[centerX], y=[centerY], c='r', s=40)
+        plt.scatter(x=[centerX], y=[centerY], c='r', s=10)
         if dispClassLabel == True:
-            plt.text(centerX, centerY, eachObj['name'], fontsize = 30 ,color = 'red')
+            plt.text(centerX, centerY, eachObj['name'], fontsize = 15 ,color = 'red')
         
         ax.add_patch(rect)
     
