@@ -41,7 +41,7 @@ def addBoundingBox(plt,objectList,dispClassLabel =True):
     
     
     
-def plotGridOnImg(filepath,numXGrids,numYGrids,objectList,grid = True,dispClassLabel=  True):
+def plotGridOnImg(filepath,numXGrids,numYGrids,objectList,dispClassLabel=  True,grid = True):
     
     """
     
