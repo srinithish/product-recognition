@@ -177,6 +177,6 @@ if __name__  == "__main__":
     imageDict, ObjList = XMLParser.parseXMLtoDict(inpFileXML)
     targetArray = generateTargetVariable.genTargetArray(inpFilePic,imageDict, ObjList,xNumGrid,yNumGrid,classMappingDict)
     
-    object_dis
+    
     
     
