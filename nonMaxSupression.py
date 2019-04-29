@@ -153,10 +153,10 @@ def non_max_suppression(boxes, probs, labels, overlapThresh=0.5, probThres=0.1,c
     # return only the bounding boxes that were picked
     return boxes[pick].astype("int"), labels[pick]
 
-def non_max_supression_wrapper(object_dict,classMappingDict,overlapThresh=0.5,probThres=0.1):
+def non_max_supression_wrapper(object_dict,classMappingDict,overlapThresh=0.5,probThres=0.1, checkLabels=True):
     boxes,probs,labels = input_to_nms(object_dict)
     boxes,labels = non_max_suppression(boxes, probs, labels, 
-                                       overlapThresh=overlapThresh, probThres=probThres,checkLabels=True)
+                                       overlapThresh=overlapThresh, probThres=probThres,checkLabels=checkLabels)
     output = convert_op_nms(boxes,labels,classMappingDict)
     return output
     

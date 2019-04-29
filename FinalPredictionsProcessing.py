@@ -42,7 +42,7 @@ classMappingDict = {'milk':0,'tomato': 1, 'apple':2 , 'eggs':3 ,'onion': 4,
 
 
 def visualisePredictions(trueImgDict,trueObjList,imgPath,eachPredictionArray,
-                         overlapThresh,probThres,dispClassLabel):
+                         overlapThresh,probThres,dispClassLabel,checkLabels):
     """
     Should shange the thresholds if required
     change grid size as well if needed
@@ -56,7 +56,7 @@ def visualisePredictions(trueImgDict,trueObjList,imgPath,eachPredictionArray,
     
     
     postNonMaxPredObjList = nonMaxSupression.non_max_supression_wrapper(pred_objectList,classMappingDict,
-                                                                     overlapThresh,probThres)
+                                                                     overlapThresh,probThres,checkLabels)
     
     gridImg = plotGridAndBound.plotGridOnImg(imgPath,GRID_SIZE,GRID_SIZE,postNonMaxPredObjList,
                                              dispClassLabel= dispClassLabel,grid =False)
@@ -73,7 +73,7 @@ def visualise_preds_for_set_of_images(imgFilePathList,
                                       ObjLists_True_Path,
                                       predictionArrayPath,
                                       overlapThresh=0.5,probThres=0.5,
-                                      maxImagesToPlot = 10,dispClassLabel = False):
+                                      maxImagesToPlot = 10,dispClassLabel = False,  checkLabels= True, index_range = (0,10))):
     
     """
     requires :
@@ -97,12 +97,12 @@ def visualise_preds_for_set_of_images(imgFilePathList,
 
 
 
-    for index in range(maxImagesToPlot):
+    for index in range(index_range[0], index_range[1]):
         
         visualisePredictions(ListOf_imgDicts_true[index],
                              ListOf_ObjLists_true[index],imgFilePaths_list[index],
                              ListOf_PredictionY[index],
-                             overlapThresh,probThres,dispClassLabel)
+                             overlapThresh,probThres,dispClassLabel, checkLabels)
         
 
 
