@@ -73,7 +73,7 @@ def visualise_preds_for_set_of_images(imgFilePathList,
                                       ObjLists_True_Path,
                                       predictionArrayPath,
                                       overlapThresh=0.5,probThres=0.5,
-                                      maxImagesToPlot = 10,dispClassLabel = False,  checkLabels= True, index_range = (0,10))):
+                                      maxImagesToPlot = 10,dispClassLabel = False,  checkLabels= True, index_range = (0,10)):
     
     """
     requires :
