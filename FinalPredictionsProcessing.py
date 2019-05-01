@@ -128,24 +128,26 @@ if __name__ == '__main__':
     Pretraining informations
     """
     ##pickle files
-    ImgDictsPath_True_Path = "Train images/Reshaped/annotations/resizedImageDictsAllFiles.pkl"
-    ObjLists_True_Path = "Train images/Reshaped/annotations/resizedObjectListsAllFiles.pkl"
+    ImgDictsPath_True_Path = "Train images/annotations/ImageDictsAllFiles.pkl"
+    ObjLists_True_Path = "Train images/annotations/ObjectListsAllFiles.pkl"
     ###gets all the image as list
-    imagefilePattern = "Train images/images/Arla*"
+    imagefileNames = "Train images/annotations/AllFileNames.pkl"
     
-    
+    image_names_list = pickle.load(open(imagefileNames, 'rb'))
+    img_dir = "Train images/images/"
+    image_names_list = [img_dir+img_name for img_name in image_names_list]
     """
     Prediction informations
     """
     #### prediction array pickle path
-    predictionArrayPath = "Train images/Reshaped/annotations/PredictionArray.pkl"
+    predictionArrayPath = "Train images/annotations/PredictionArray.pkl"
 
-    visualise_preds_for_set_of_images(imagefilePattern,
+    visualise_preds_for_set_of_images(image_names_list,
                                       ImgDictsPath_True_Path,
                                       ObjLists_True_Path,
                                       predictionArrayPath,
-                                      overlapThresh = 0.5,probThres= 0.9,
-                                      maxImagesToPlot = 10)
+                                      overlapThresh = 0.2,probThres= 0.98,
+                                      maxImagesToPlot = 10,index_range = (0,20), dispClassLabel=True,checkLabels=True)
     
     
     

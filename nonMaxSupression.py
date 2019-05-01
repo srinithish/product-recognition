@@ -14,11 +14,7 @@ def input_to_nms(object_dict):
     '''
     For eg:
     object_dict =  
-    {'center_x': 330,
-      'center_y': 0,
-      'box_h': 0,
-      'box_w': 0,
-      'xmin': 330.0,
+    { 'xmin': 330.0,
       'xmax': 330.0,
       'ymin': 0.0,
       'ymax': 0.0,
@@ -102,30 +98,30 @@ def non_max_suppression(boxes, probs, labels, overlapThresh=0.5, probThres=0.1,c
     # compute the area of the bounding boxes and grab the indexes to sort
     # (in the case that no probabilities are provided, simply sort on the
     # bottom-left y-coordinate)
-    area = (x2 - x1) * (y2 - y1)
+    area = (x2 - x1 + 1) * (y2 - y1 + 1)
 
     # To handle area == 0, add a small value
     epsilon = 10**-50
     # sort the indexes, this gives the grid cell with highest probability of having an object
     idxs = np.argsort(probs) # [1,2,3..9]
-
+    
     # keep looping while some indexes still remain in the indexes list
     while len(idxs) > 0:
         # grab the last index in the indexes list and add the index value
         # to the list of picked indexes
         last = len(idxs) - 1
-        i = idxs[last]
-        pick.append(i)
+        max_prob_idx = idxs[last]
+        pick.append(max_prob_idx)
 
         # find the largest (x, y) coordinates for the start of the bounding
         # box and the smallest (x, y) coordinates for the end of the bounding
         # box
         # xx1 and yy1 are the overlapping box's left corner
         # We compare element-wise the max of the all the boxes wrt last
-        xx1 = np.maximum(x1[i], x1[idxs[:last]]) # xx1.shape => no. of boxes in consideration - 1
-        yy1 = np.maximum(y1[i], y1[idxs[:last]])
-        xx2 = np.minimum(x2[i], x2[idxs[:last]])
-        yy2 = np.minimum(y2[i], y2[idxs[:last]])
+        xx1 = np.maximum(x1[max_prob_idx], x1[idxs[:last]]) # xx1.shape => no. of boxes in consideration - 1
+        yy1 = np.maximum(y1[max_prob_idx], y1[idxs[:last]])
+        xx2 = np.minimum(x2[max_prob_idx], x2[idxs[:last]])
+        yy2 = np.minimum(y2[max_prob_idx], y2[idxs[:last]])
 
         # compute the width and height of the bounding box
         # If the boxes have absolutely no overlap the width and height of the 
@@ -135,19 +131,29 @@ def non_max_suppression(boxes, probs, labels, overlapThresh=0.5, probThres=0.1,c
 
         # compute the ratio of overlap
         # Overap = overlap box area / area of box under consideration
-#        print(w.shape,h.shape)
-        overlap = (w * h) / (area[idxs[:last]] + epsilon)
 
+        intersection = w * h
+        union = area[max_prob_idx] + area[idxs[:last]] - intersection
+        
+        # This is IoU
+        overlap = intersection/union
+        
+        # intersection/area of max prob idx box
+#        overlap = intersection/area[max_prob_idx]
+        
+        
         # delete all indexes from the index list that have overlap greater
         # than the provided overlap threshold
-        if checkLabels:
-            overlap_idxs = overlap >= overlapThresh
-            same_labels = labels[:last] == labels[i]
+        overlap_idxs = overlap >= overlapThresh
+        
+        if checkLabels == True:
+            same_labels = labels[idxs[:last]] == labels[max_prob_idx]
             idxs = np.delete(idxs, np.concatenate(([last],
                                                    np.where(np.logical_and(overlap_idxs,same_labels))[0])))
+            
         else:
             idxs = np.delete(idxs, np.concatenate(([last],
-                                                   np.where(overlap > overlapThresh)[0])))
+                                                   np.where(overlap_idxs)[0])))
             
 
     # return only the bounding boxes that were picked
@@ -162,25 +168,38 @@ def non_max_supression_wrapper(object_dict,classMappingDict,overlapThresh=0.5,pr
     
 
 if __name__  == "__main__":
-    import imageManipulations
-    import plotGridAndBound
-    import XMLParser
-    import assigngrid
-    import normalization
-    import denormalization
-    import generateTargetVariable
+    # Test case:
+    object_dict =  [{ 'xmin': 0.0,
+                      'xmax': 3.0,
+                      'ymin': 0.0,
+                      'ymax': 3.0,
+                      'name': 'milk',
+                      'intClass': 0,
+                      'probClass': 1.0},
+                    { 'xmin': 1.0,
+                      'xmax': 4.0,
+                      'ymin': 1.0,
+                      'ymax': 4.0,
+                      'name': 'milk',
+                      'intClass': 0,
+                      'probClass': 0.7},
+                    { 'xmin': 2.0,
+                      'xmax': 6.0,
+                      'ymin': 2.0,
+                      'ymax': 6.0,
+                      'name': 'tomato',
+                      'intClass': 1,
+                      'probClass': 0.8}]
     
+    classMappingDict = {'milk': 0,'tomato': 1}
     
-    xNumGrid = 19
-    yNumGrid = 19
-    classMappingDict = {'lion': 0, 'cat' : 1}
+    boxes,probs,labels = input_to_nms(object_dict)
     
-    inpFilePic = "D:/Assignments/Sem 2/Deep learning/Project/Yolo/dl_project/testing/resized.jpg"
-    inpFileXML = "D:/Assignments/Sem 2/Deep learning/Project/Yolo/dl_project/testing/resized.xml"
-    
-    imageDict, ObjList = XMLParser.parseXMLtoDict(inpFileXML)
-    targetArray = generateTargetVariable.genTargetArray(inpFilePic,imageDict, ObjList,xNumGrid,yNumGrid,classMappingDict)
-    
-    
+#    non_max_suppression(boxes, probs, labels,overlapThresh=0.5, probThres=0.1,checkLabels=True)
+    ovrlpThrs = 0.2
+    probThrs = 0.1
+    output = non_max_supression_wrapper(object_dict,classMappingDict,overlapThresh=ovrlpThrs,probThres=probThrs, checkLabels=True)
+    print(len(output))
+    print(output)
     
     
