@@ -2,6 +2,7 @@ import numpy as np
 from sklearn.metrics import f1_score
 import decodePredictionArray
 import pickle
+import nonMaxSupression
 def calculate_accuracy(ground_truth_object_list, pred_object_list):
     """For each image we try to find the ground truch and predicted counts for the classes
     
@@ -87,8 +88,14 @@ if __name__ == "__main__":
     
     ListOf_ObjLists_Pred = []
     
+    ovrlpThrs = 0.1
+    probThrs = 0.8
+    
     for imgDict,predictionArray in zip(ListOf_imgDicts_true,ListOf_PredictionY):
         predObjectList = decodePredictionArray.decodePredArr(imgDict,predictionArray,classMappingDict)
-        ListOf_ObjLists_Pred.append(predObjectList)
+        reducedObjList = nonMaxSupression.non_max_supression_wrapper(predObjectList,classMappingDict,
+                                   overlapThresh=ovrlpThrs,probThres=probThrs, checkLabels=True)
+        
+        ListOf_ObjLists_Pred.append(reducedObjList)
 
     print(get_r2_score(np.random.rand(100,10), np.random.rand(100,10)))
