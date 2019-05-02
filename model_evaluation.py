@@ -90,5 +90,11 @@ if __name__ == "__main__":
     for imgDict,predictionArray in zip(ListOf_imgDicts_true,ListOf_PredictionY):
         predObjectList = decodePredictionArray.decodePredArr(imgDict,predictionArray,classMappingDict)
         ListOf_ObjLists_Pred.append(predObjectList)
-
+        
+    ground_truth_list, pred_list = calculate_accuracy(ListOf_ObjLists_GroundTruth, ListOf_ObjLists_Pred)
+    r2_mean_score_per_image = 0.0
+    for item in ground_truth_list:
+        ground_truth = ground_truth_list[item]
+        prediction = pred_list[item]
+        
     print(get_r2_score(np.random.rand(100,10), np.random.rand(100,10)))
