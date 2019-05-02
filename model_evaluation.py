@@ -39,7 +39,7 @@ def calculate_accuracy(ground_truth_object_list, pred_object_list):
 
     return ground_truth_list, pred_list
 
-def get_weighted_f1_score(ground_truth, predicted):
+def get_r2_score(ground_truth, predicted):
     """Get the weighted f1 score for the model.
     
     Parameters
@@ -49,7 +49,11 @@ def get_weighted_f1_score(ground_truth, predicted):
 
     Returns
     -------
-    The F1 score of the model.
+    The R2 score of the model.
     """
-    return f1_score(np.sum(ground_truth, axis = 0).reshape(10,1), np.sum(predicted, axis = 0).reshape(10,1), average='weighted')
+    residual = np.sum(np.square(np.subtract(ground_truth, predicted)))
+    total = np.sum(np.square(np.subtract(ground_truth, np.mean(ground_truth))))
+    return np.subtract(1.0, np.divide(residual, (total + 0.00000000001)))
 
+if __name__ == "__main__":
+    print(get_r2_score(np.random.rand(100,10), np.random.rand(100,10)))
