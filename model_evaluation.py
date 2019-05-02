@@ -1,6 +1,7 @@
 import numpy as np
 from sklearn.metrics import f1_score
-
+import decodePredictionArray
+import pickle
 def calculate_accuracy(ground_truth_object_list, pred_object_list):
     """For each image we try to find the ground truch and predicted counts for the classes
     
@@ -56,4 +57,38 @@ def get_r2_score(ground_truth, predicted):
     return np.subtract(1.0, np.divide(residual, (total + 0.00000000001)))
 
 if __name__ == "__main__":
+    
+    classMappingDict = {'milk':0,'tomato': 1, 'apple':2 , 'eggs':3 ,'onion': 4,
+                    'salt':5, 'yogurt': 6, 'sugar': 7, 'butter': 8, 'orange':9}
+    
+    ImgDictsPath_True_Path = "renamed_images/resized/annotations/ImageDictsAllFiles.pkl"
+    ObjLists_True_Path = "renamed_images/resized/annotations/ObjectListsAllFiles.pkl"
+    
+    imagefileNames = "renamed_images/resized/annotations/AllFileNames.pkl"
+    image_names_list = pickle.load(open(imagefileNames, 'rb'))
+    
+    predictionArrayPath = "renamed_images/resized/annotations/PredictionArray_correct.pkl"
+    
+    ##not actually required
+    img_dir = "renamed_images/resized/images/"
+    image_names_list = [img_dir+img_name for img_name in image_names_list]
+    
+    
+    
+    ###load all predictions
+    ListOf_imgDicts_true = pickle.load(open(ImgDictsPath_True_Path, 'rb'))
+  
+
+    ListOf_ObjLists_GroundTruth = pickle.load(open(ObjLists_True_Path, 'rb'))
+
+    ListOf_PredictionY = pickle.load(open(predictionArrayPath, 'rb'))
+
+    ##loop
+    
+    ListOf_ObjLists_Pred = []
+    
+    for imgDict,predictionArray in zip(ListOf_imgDicts_true,ListOf_PredictionY):
+        predObjectList = decodePredictionArray.decodePredArr(imgDict,predictionArray,classMappingDict)
+        ListOf_ObjLists_Pred.append(predObjectList)
+
     print(get_r2_score(np.random.rand(100,10), np.random.rand(100,10)))
