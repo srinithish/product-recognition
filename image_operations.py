@@ -4,6 +4,7 @@ Created on Thu Apr 11 21:16:41 2019
 
 @author: gurjaspal
 """
+# The data augmentation implementation has been referred from https://github.com/Paperspace/DataAugmentationForObjectDetection
 from data_aug.data_aug import RandomHorizontalFlip, RandomRotate , Rotate, Shear, Resize, draw_rect
 import cv2
 import matplotlib.pyplot as plt 

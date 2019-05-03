@@ -1,3 +1,7 @@
+"""
+Following code has been taken from https://github.com/Paperspace/DataAugmentationForObjectDetection
+"""
+
 import cv2 
 import numpy as np
 
